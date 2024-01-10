@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "buildingBlocks", "buildingB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identidade", "Identidade", "{95381F25-EC2A-49D1-83A0-44B4F8B3D0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSM.Identidade.Api", "src\services\WSM.Identidade.Api\WSM.Identidade.Api.csproj", "{1743A2F1-4BCE-493A-8A4D-3BD58A26E274}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSM.Autenticar.API", "C:\Treinamento\BackAnd\Treinamento-em-MicroServicos\src\services\WSM.Autenticar.API\WSM.Autenticar.API.csproj", "{AFF69962-E31B-4505-BFEB-E65691AD8965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1743A2F1-4BCE-493A-8A4D-3BD58A26E274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1743A2F1-4BCE-493A-8A4D-3BD58A26E274}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1743A2F1-4BCE-493A-8A4D-3BD58A26E274}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1743A2F1-4BCE-493A-8A4D-3BD58A26E274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF69962-E31B-4505-BFEB-E65691AD8965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF69962-E31B-4505-BFEB-E65691AD8965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF69962-E31B-4505-BFEB-E65691AD8965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF69962-E31B-4505-BFEB-E65691AD8965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +34,6 @@ Global
 		{8FFF3511-6C2E-4A7A-9C64-6DDA5736D8D1} = {0D1632AE-AB4D-4945-AEA6-BBE42AE56464}
 		{A10EBC99-9C04-4144-8854-F4D7380DDEB7} = {0D1632AE-AB4D-4945-AEA6-BBE42AE56464}
 		{95381F25-EC2A-49D1-83A0-44B4F8B3D0B0} = {90495879-7C2F-44F8-A8C1-2FBB050E57D1}
-		{1743A2F1-4BCE-493A-8A4D-3BD58A26E274} = {95381F25-EC2A-49D1-83A0-44B4F8B3D0B0}
+		{AFF69962-E31B-4505-BFEB-E65691AD8965} = {95381F25-EC2A-49D1-83A0-44B4F8B3D0B0}
 	EndGlobalSection
 EndGlobal
