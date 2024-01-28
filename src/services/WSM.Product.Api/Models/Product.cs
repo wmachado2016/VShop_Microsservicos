@@ -1,7 +1,15 @@
-﻿namespace WSM.Catalog.Api.Models;
+﻿using AspNetCore.IQueryable.Extensions;
+using AspNetCore.IQueryable.Extensions.Attributes;
+using AspNetCore.IQueryable.Extensions.Filter;
+using AspNetCore.IQueryable.Extensions.Pagination;
+using AspNetCore.IQueryable.Extensions.Sort;
+using WSM.Catalog.Api.ViewModels;
 
-public class Product
+namespace WSM.Catalog.Api.Models;
+
+public class Product : Base, ICustomQueryable, IQueryPaging, IQuerySort
 {
+    [QueryOperator(Operator =WhereOperator.Contains)]
     public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
@@ -10,5 +18,42 @@ public class Product
     public string ImagenUrl { get; set; }
 
     public Category Category { get; set; }
-    public int CategoryId { get; set; }
+    public int CategoryId { get; set; }  
+
+    public static implicit operator ProductViewModel(Product product)
+    {
+        return new ProductViewModel
+        {
+            Id = product.Id,
+            Name = product.Category?.Name,
+            Description = product.Description,
+            Price = product.Price,
+            Stock = product.Stock,
+            ImagenUrl = product.ImagenUrl,
+            Category = product.Category,
+            CategoryId = product.CategoryId,
+            Limit = product.Limit,
+            Offset = product.Offset,
+            Sort = product.Sort
+        };
+    }
+
+    public static implicit operator Product(ProductViewModel product)
+    {
+        return new Product
+        {
+            Id = product.Id,
+            Name = product.Category?.Name,
+            Description = product.Description,
+            Price = product.Price,
+            Stock = product.Stock,
+            ImagenUrl = product.ImagenUrl,
+            Category = product.Category,
+            CategoryId = product.CategoryId,
+            Limit = product.Limit,
+            Offset = product.Offset,
+            Sort = product.Sort
+        };
+    }
+
 }
