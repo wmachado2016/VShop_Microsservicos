@@ -20,7 +20,7 @@ namespace WSM.Catalog.Api.Repository
 
         public async Task<IEnumerable<Category>> GetAll(GetCategory category)
         {
-            var cat = await _appDbContextCatalog.Categories.AsQueryable().Filter(category).Paginate(category).Sort(category).ToListAsync();
+            var cat = await _appDbContextCatalog.Categories.AsNoTracking().AsQueryable().Filter(category).Paginate(category).Sort(category).ToListAsync();
             return cat;
         }
 

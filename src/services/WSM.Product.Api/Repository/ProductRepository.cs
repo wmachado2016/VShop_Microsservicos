@@ -19,7 +19,7 @@ namespace WSM.Catalog.Api.Repository
 
         public async Task<IEnumerable<Product>> GetAll(GetProduct product)
         {
-            var prod = await _appDbContextCatalog.Products.AsQueryable().Apply(product).ToListAsync();
+            var prod = await _appDbContextCatalog.Products.AsNoTracking().AsQueryable().Apply(product).ToListAsync();
             return prod;
         }
 
