@@ -15,36 +15,35 @@ namespace WSM.Catalog.Api.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ProductViewModel>> GetProductsAsync(ProductViewModel productViewModel)
+        public async Task<IEnumerable<ProductViewModel>> GetProductsAsync(GetProduct getProduct)
         {
-            Product product = productViewModel;
-            var lisProduct = await _productRepository.GetAll(product);
+            var lisProduct = await _productRepository.GetAll(getProduct);
             return _mapper.Map<IEnumerable<ProductViewModel>>(lisProduct);
         }
 
         public async Task<ProductViewModel> GetProductByIdAsync(int id)
         {
-            var categoryEntity = await _productRepository.GetById(id);
-            return _mapper.Map<ProductViewModel>(categoryEntity);
+            var productEntity = await _productRepository.GetById(id);
+            return _mapper.Map<ProductViewModel>(productEntity);
         }
 
-        public async Task AddProduct(ProductViewModel categoryViewModel)
+        public async Task AddProduct(ProductViewModel productViewModel)
         {
-            Product categoryEntity = categoryViewModel;
-            await _productRepository.Create(categoryEntity);
-            categoryViewModel.CategoryId = categoryEntity.CategoryId;
+            Product product = _mapper.Map<Product>(productViewModel);
+            await _productRepository.Create(product);
+            productViewModel.Id = product.Id;
         }
 
         public async Task UpdateProduct(ProductViewModel productViewModel)
         {
-            Product categoryEntity = productViewModel;
-            await _productRepository.Update(categoryEntity);
+            Product productEntity = productViewModel;
+            await _productRepository.Update(productEntity);
         }
 
         public async Task RemoveProduct(int id)
         {
-            var categoryEntity = _productRepository.GetById(id).Result;
-            await _productRepository.Delete(categoryEntity.CategoryId);
+            var productEntity = _productRepository.GetById(id).Result;
+            await _productRepository.Delete(productEntity.Id);
         }
     }
 }

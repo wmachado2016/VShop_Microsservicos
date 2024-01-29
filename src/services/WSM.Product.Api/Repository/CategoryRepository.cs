@@ -1,7 +1,11 @@
 ﻿using AspNetCore.IQueryable.Extensions;
+using AspNetCore.IQueryable.Extensions.Filter;
+using AspNetCore.IQueryable.Extensions.Pagination;
+using AspNetCore.IQueryable.Extensions.Sort;
 using Microsoft.EntityFrameworkCore;
 using WSM.Catalog.Api.Context;
 using WSM.Catalog.Api.Models;
+using WSM.Catalog.Api.ViewModels;
 
 namespace WSM.Catalog.Api.Repository
 {
@@ -14,9 +18,10 @@ namespace WSM.Catalog.Api.Repository
             _appDbContextCatalog = appDbContextCatalog;
         }
 
-        public async Task<IEnumerable<Category>> GetAll(Category category)
+        public async Task<IEnumerable<Category>> GetAll(GetCategory category)
         {
-            return await _appDbContextCatalog.Categories.AsQueryable().Apply(category).ToListAsync();
+            var cat = await _appDbContextCatalog.Categories.AsQueryable().Filter(category).Paginate(category).Sort(category).ToListAsync();
+            return cat;
         }
 
         public async Task<IEnumerable<Category>> GetCategorysProducts()

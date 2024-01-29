@@ -4,7 +4,7 @@ namespace WSM.Catalog.Api.Services
 {
     public interface IProductService
     {
-        Task<IEnumerable<ProductViewModel>> GetProductsAsync(ProductViewModel productViewModel);
+        Task<IEnumerable<ProductViewModel>> GetProductsAsync(GetProduct productViewModel);
         Task<ProductViewModel> GetProductByIdAsync(int id);
         Task AddProduct(ProductViewModel productViewModel);
         Task UpdateProduct(ProductViewModel productViewModel);

@@ -7,9 +7,8 @@ using WSM.Catalog.Api.ViewModels;
 
 namespace WSM.Catalog.Api.Models;
 
-public class Product : Base, ICustomQueryable, IQueryPaging, IQuerySort
-{
-    [QueryOperator(Operator =WhereOperator.Contains)]
+public class Product { 
+   
     public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
@@ -31,10 +30,7 @@ public class Product : Base, ICustomQueryable, IQueryPaging, IQuerySort
             Stock = product.Stock,
             ImagenUrl = product.ImagenUrl,
             Category = product.Category,
-            CategoryId = product.CategoryId,
-            Limit = product.Limit,
-            Offset = product.Offset,
-            Sort = product.Sort
+            CategoryId = product.CategoryId
         };
     }
 
@@ -49,10 +45,7 @@ public class Product : Base, ICustomQueryable, IQueryPaging, IQuerySort
             Stock = product.Stock,
             ImagenUrl = product.ImagenUrl,
             Category = product.Category,
-            CategoryId = product.CategoryId,
-            Limit = product.Limit,
-            Offset = product.Offset,
-            Sort = product.Sort
+            CategoryId = product.CategoryId
         };
     }
 

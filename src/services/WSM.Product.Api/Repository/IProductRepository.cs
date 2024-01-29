@@ -1,10 +1,11 @@
 ﻿using WSM.Catalog.Api.Models;
+using WSM.Catalog.Api.ViewModels;
 
 namespace WSM.Catalog.Api.Repository
 {
     public interface IProductRepository
     {
-        Task<IEnumerable<Product>> GetAll(Product product);
+        Task<IEnumerable<Product>> GetAll(GetProduct product);
         Task<Product> GetById(int id);
         Task<Product> Create(Product product);
         Task<Product> Update(Product product);

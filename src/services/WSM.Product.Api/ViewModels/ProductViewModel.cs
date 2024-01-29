@@ -3,7 +3,7 @@ using WSM.Catalog.Api.Models;
 
 namespace WSM.Catalog.Api.ViewModels
 {
-    public class ProductViewModel:Base
+    public class ProductViewModel:GetProduct
     {
         public int Id { get; set; }
 

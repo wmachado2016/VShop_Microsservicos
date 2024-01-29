@@ -16,10 +16,9 @@ namespace WSM.Catalog.Api.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync(CategoryViewModel categoryViewModel)
+        public async Task<IEnumerable<CategoryViewModel>> GetCategoriesAsync(GetCategory categoryViewModel)
         {
-            Category category = categoryViewModel;
-            var lisCategory = await _categoryRepository.GetAll(category);
+            var lisCategory = await _categoryRepository.GetAll(categoryViewModel);
             return _mapper.Map<IEnumerable<CategoryViewModel>>(lisCategory);
         }
 
@@ -37,15 +36,15 @@ namespace WSM.Catalog.Api.Services
 
         public async Task AddCategory(CategoryViewModel categoryViewModel)
         {
-            Category categoryEntity = categoryViewModel;
-            await _categoryRepository.Create(categoryEntity);
-            categoryViewModel.CategoryId = categoryEntity.CategoryId;
+            Category category = _mapper.Map<Category>(categoryViewModel);
+            await _categoryRepository.Create(category);
+            categoryViewModel.CategoryId = category.CategoryId;
         }
 
         public async Task UpdateCategory(CategoryViewModel categoryViewModel)
         {
-            Category categoryEntity = categoryViewModel;
-            await _categoryRepository.Update(categoryEntity);
+            Category category = _mapper.Map<Category>(categoryViewModel);
+            await _categoryRepository.Update(category);
         }
 
         public async Task RemoveCategory(int id)

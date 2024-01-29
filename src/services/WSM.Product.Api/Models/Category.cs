@@ -7,9 +7,8 @@ using WSM.Catalog.Api.ViewModels;
 
 namespace WSM.Catalog.Api.Models;
 
-public class Category : Base, ICustomQueryable, IQueryPaging, IQuerySort
-{
-    [QueryOperator(Operator = WhereOperator.Contains)]
+public class Category
+{   
     public int CategoryId { get; set; }
     public string Name { get; set; }
 
